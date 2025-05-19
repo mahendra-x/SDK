@@ -1,0 +1,11 @@
+{
+  "name": "your-component",
+  "version": "0.1.0",
+  "main": "src/YourComponent.tsx",
+  "types": "src/types.ts",
+  "react-native": {
+    "android": "android",
+    "ios": "ios"
+  },
+  "keywords": ["react-native", "native-module", "YourComponent"]
+}

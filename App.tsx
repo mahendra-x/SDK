@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -23,6 +24,67 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { WebView } from 'react-native-webview';
+
+
+import {WebViewApp}  from 'SDKMaker';
+
+// import {AuthComponent}  from 'SDKMaker';
+
+// import YourComponent from './your-component';
+
+// export const productsData = [
+//   {
+//     id: '1',
+//     name: 'React Native Docs',
+//     url: 'https://reactnative.dev/',
+//   },
+//   {
+//     id: '2',
+//     name: 'Google',
+//     url: 'https://www.google.com',
+//   },
+//   {
+//     id: '3',
+//     name: 'GitHub',
+//     url: 'https://github.com',
+//   },
+//   {
+//     id: '4',
+//     name: 'Stack Overflow',
+//     url: 'https://stackoverflow.com',
+//   },
+//   {
+//     id: '5',
+//     name: 'Wikipedia',
+//     url: 'https://en.wikipedia.org',
+//   },
+//   {
+//     id: '6',
+//     name: 'Twitter',
+//     url: 'https://twitter.com',
+//   },
+//   {
+//     id: '7',
+//     name: 'Facebook',
+//     url: 'https://facebook.com',
+//   },
+//   {
+//     id: '8',
+//     name: 'LinkedIn',
+//     url: 'https://linkedin.com',
+//   },
+//   {
+//     id: '9',
+//     name: 'YouTube',
+//     url: 'https://youtube.com',
+//   },
+//   {
+//     id: '10',
+//     name: 'Amazon',
+//     url: 'https://amazon.com',
+//   },
+// ];
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -55,6 +117,8 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 
 function App(): React.JSX.Element {
+console.log('WebView in host app:', WebView);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -72,40 +136,43 @@ function App(): React.JSX.Element {
    */
   const safePadding = '5%';
 
+  const safData = [
+    {
+      id: '11',
+      name: 'Reddit',
+      url: 'https://www.reddit.com',
+    },
+    {
+      id: '12',
+      name: 'Netflix',
+      url: 'https://www.netflix.com',
+    },
+    {
+      id: '13',
+      name: 'Microsoft',
+      url: 'https://www.microsoft.com',
+    },
+    {
+      id: '14',
+      name: 'Apple',
+      url: 'https://www.apple.com',
+    },
+    {
+      id: '15',
+      name: 'CNN',
+      url: 'https://www.cnn.com',
+    },
+  ];
+
   return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text>hi</Text>
+        <WebViewApp products={safData}/>
+        {/* <AuthComponent onLogin={safData}/> */}
+
+      
+    </SafeAreaView>
+
   );
 }
 
@@ -126,6 +193,7 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  container: {flex: 1, padding: 16},
 });
 
 export default App;

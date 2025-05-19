@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "react": "19.0.0",
-    "react-native": "0.79.2"
+    "react-native": "0.79.2",
+    "react-native-webview": "^13.13.5",
+    "SDKMaker": "file:SDKMaker-0.0.7.tgz",
+    "your-component": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
